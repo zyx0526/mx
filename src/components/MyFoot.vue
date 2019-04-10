@@ -6,6 +6,7 @@
            </div>
            <div class="wx_btn">
                微信公众号
+               <img src="../assets/erweima.png" alt="" class="pic">
            </div>
        </div>
        <div class="footer_tel">
@@ -13,7 +14,7 @@
        </div>
        <div class="footer_nav clear_fix">
            <p>
-               <router-link  v-for="(item,index) in arr"  class="router"   :style="[7===index?mystyle:'']"  :to="item.b">{{item.a}}</router-link>
+               <router-link  v-for="(item,index) in arr"  class="router"  :key="(item,index)" :style="[7===index?mystyle:'']"  :to="item.b">{{item.a}}</router-link>
            </p>
        </div>
        <div class="footer_address">
@@ -32,17 +33,22 @@ export default {
       return {
           arr:[{a:"诺心公告",b:"/nuoxin"},{a:"关于诺心",b:"/guanyu"},{a:"联系我们",b:"/lianxi"},{a:"客服服务",b:"/kefu"},{a:"食品经营许可证",b:"/shiping"},{a:"生产许可证",b:"/shenchan"},{a:"预付费卡协议",b:"/yufu"},{a:"上海工商",b:"/shanghai"},{a:"环保信息",b:"/huanbao"}],
           mystyle:{
-            background: "url(../static/guo.png)",
+            background: "url(../../static/guo.png)",
             backgroundSize: "20px 20px",
             backgroundRepeat: "no-repeat",
-            backgroundPosition: "50% 0"
+            backgroundPosition: "17% 0",
+            paddingLeft:"32px"
           }
       }
   }
 }
 </script>
 
-<style>
+<style scoped>
+    .box {
+        width: 300px;
+        height: 300px;
+    }
     .footer {
         font: 12px/1.5 "Hiragino Sans GB", "Microsoft YaHei", Helvetica, '宋体', STFangsong, STXihei, Arial, serif;
         width: 100%;
@@ -66,7 +72,8 @@ export default {
         background: url(../assets/service.png);
         background-size: 30px 30px;
         background-repeat: no-repeat;
-        background-position: 50% 0
+        background-position: 50% 0;
+        cursor: pointer;
     }
     .wx_btn {
         width: 100px;
@@ -75,7 +82,18 @@ export default {
         background: url(../assets/wx.png);
         background-size: 30px 30px;
         background-repeat: no-repeat;
-        background-position: 50% 0
+        background-position: 50% 0;
+        cursor: pointer;
+        position: relative;
+    }
+    .wx_btn:hover .pic {
+        display: block
+    }
+    .pic {
+        position: absolute;
+        top: -240px;
+        left: -50px;
+        display: none
     }
     .footer_tel {
         height: 40px;

@@ -1,12 +1,17 @@
 <template>
   <div id="app">
     <router-view/>
+    <my-foot></my-foot>
   </div>
 </template>
 
 <script>
+import MyFoot from "./components/MyFoot"
 export default {
-  name: 'App'
+  name: 'App',
+  components:{
+  	"my-foot":MyFoot
+  }
 }
 </script>
 
